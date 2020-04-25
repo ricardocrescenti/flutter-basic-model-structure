@@ -66,6 +66,9 @@ abstract class PatternModel {
     this.createdAt = getJsonValue<DateTime>('created_at');
     this.updatedAt = getJsonValue<DateTime>('updated_at');
   }
+  PatternModel.empty() {
+    json = Map<String, dynamic>();
+  }
 
   @mustCallSuper
   Map<String, dynamic> toJson() {
