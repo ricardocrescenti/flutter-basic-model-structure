@@ -84,8 +84,8 @@ abstract class PatternModel {
     _exportOnlyChanged = exportOnlyChanged;
     _ignoreNulls = ignoreNulls;
 
-    setJsonValue(map, 'id', this.id, onlyNotNull: true, alwaysExport: true);
-    setJsonValue(map, 'uuid', this.uuid, onlyNotNull: true, alwaysExport: true);
+    setJsonValue(map, 'id', id, onlyNotNull: true, alwaysExport: true);
+    setJsonValue(map, 'uuid', uuid, onlyNotNull: true, alwaysExport: true);
 
     return map;
   }

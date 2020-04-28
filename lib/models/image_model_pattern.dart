@@ -65,9 +65,9 @@ abstract class ImageModelPattern extends PatternModel {
   Map<String, dynamic> toJson({bool exportOnlyChanged = false, bool ignoreNulls = false}) {
     Map<String, dynamic> map = super.toJson(exportOnlyChanged: exportOnlyChanged, ignoreNulls: ignoreNulls);
     
-    setJsonValue(map, 'content', this.content);
-    setJsonValue(map, 'private_url', this.privateUrl);
-    setJsonValue(map, 'public_url', this.publicUrl);
+    setJsonValue(map, 'content', content);
+    setJsonValue(map, 'private_url', privateUrl);
+    setJsonValue(map, 'public_url', publicUrl);
     
     return map;
   }
