@@ -49,22 +49,26 @@ abstract class ImageModelPattern extends PatternModel {
     return await uploadPhotoManager.storageReference.getRoot().child(privateUrl).getDownloadURL();
   }
 
-  ImageModelPattern.fromJson(json) : super.fromJson(json) {
-    this.content = getJsonValue('content');
-    this.views = getJsonValue('views');
-    this.privateUrl = getJsonValue('private_url');
-    this.publicUrl = getJsonValue('public_url');
+  ImageModelPattern.fromJson(json) : super.fromJson(json);
+  ImageModelPattern.empty() : super.empty();
+
+  @override
+  void updateValues(Map<String, dynamic> values) {
+    super.updateValues(values);
+    content = getJsonValue('content');
+    views = getJsonValue('views');
+    privateUrl = getJsonValue('private_url');
+    publicUrl = getJsonValue('public_url');
   }
 
   @override
-  Map<String, dynamic> toJson({bool exportOnlyJsonFields = false}) {
-    Map<String, dynamic> map = super.toJson();
+  Map<String, dynamic> toJson({bool exportOnlyChanged = false, bool ignoreNulls = false}) {
+    Map<String, dynamic> map = super.toJson(exportOnlyChanged: exportOnlyChanged, ignoreNulls: ignoreNulls);
     
     setJsonValue(map, 'content', this.content);
-    //setJsonValue(map, 'views', this.views);
     setJsonValue(map, 'private_url', this.privateUrl);
-    //setJsonValue(map, 'public_url', this.publicUrl);
+    setJsonValue(map, 'public_url', this.publicUrl);
     
-    return filterMap(map, (exportOnlyJsonFields ? json.keys : null));
+    return map;
   }
 }

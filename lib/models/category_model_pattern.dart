@@ -8,9 +8,13 @@ abstract class CategoryModelPattern<ImageModel extends ImageModelPattern> extend
   ImageModel image;
 
   ImageModel getPhotoFromJson(dynamic json);
+  
+  CategoryModelPattern.fromJson(json) : super.fromJson(json);
+  CategoryModelPattern.empty() : super.empty();
 
   @override
-  CategoryModelPattern.fromJson(json): super.fromJson(json) {
+  void updateValues(Map<String, dynamic> values) {
+    super.updateValues(values);
     name = getJsonValue<String>('name');
     description = getJsonValue<String>('description');
     image = getJsonValue<ImageModel>('image', convertion: (value) => getPhotoFromJson(value));
