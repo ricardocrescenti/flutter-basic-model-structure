@@ -2,7 +2,7 @@ import 'package:basic_structure/basic_structure.dart';
 
 import '../basic_structure.dart';
 
-abstract class CategoryModelPattern<ImageModel extends ImageModelPattern> extends PatternModel {
+abstract class CategoryModelPattern<ImageModel extends FileModelPattern> extends PatternModel {
   String name;
   String description;
   ImageModel image;
