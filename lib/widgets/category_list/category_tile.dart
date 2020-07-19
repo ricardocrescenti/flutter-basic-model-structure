@@ -63,7 +63,7 @@ class CategoryTile extends StatelessWidget {
   _buildName(BuildContext context, CategoryModelPattern category) {
     return (buildName != null ? buildName(context, category) : Padding(
       padding: EdgeInsets.all(10),
-      child: Text(category.name, style: Theme.of(context).textTheme.body2, softWrap: false, overflow: TextOverflow.fade,)
+      child: Text(category.name, style: Theme.of(context).textTheme.bodyText1, softWrap: false, overflow: TextOverflow.fade,)
     ));
   }
 }
