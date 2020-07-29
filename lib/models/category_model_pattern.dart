@@ -2,12 +2,14 @@ import 'package:basic_structure/basic_structure.dart';
 
 import '../basic_structure.dart';
 
-abstract class CategoryModelPattern<ImageModel extends FileModelPattern> extends PatternModel {
+abstract class CategoryModelPattern<ImageModel, ParentModel> extends PatternModel {
   String name;
   String description;
   ImageModel image;
+  ParentModel parent;
 
-  ImageModel getPhotoFromJson(dynamic json);
+  ImageModel getImageFromJson(dynamic json);
+  ParentModel getParentFromJson(dynamic json);
   
   CategoryModelPattern.fromJson(json) : super.fromJson(json);
   CategoryModelPattern.empty() : super.empty();
@@ -17,6 +19,19 @@ abstract class CategoryModelPattern<ImageModel extends FileModelPattern> extends
     super.updateValues(values);
     name = getJsonValue<String>('name');
     description = getJsonValue<String>('description');
-    image = getJsonValue<ImageModel>('image', convertion: (value) => getPhotoFromJson(value));
+    image = getJsonValue<ImageModel>('image', convertion: (value) => getImageFromJson(value));
+    parent = getJsonValue<ParentModel>('parent', convertion: (value) => getParentFromJson(value));
+  }
+
+  @override
+  Map<String, dynamic> toJson({bool exportOnlyChanged = false, bool ignoreNulls = false}) {
+    Map<String, dynamic> map = super.toJson(exportOnlyChanged: exportOnlyChanged, ignoreNulls: ignoreNulls);
+    
+    setJsonValue(map, 'name', name);
+    setJsonValue(map, 'description', description);
+    setJsonValue(map, 'image', image);
+    setJsonValue(map, 'parent', parent);
+    
+    return map;
   }
 }

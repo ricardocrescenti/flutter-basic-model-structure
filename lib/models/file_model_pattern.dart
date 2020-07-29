@@ -24,7 +24,7 @@ abstract class FileModelPattern extends PatternModel {
   String privateUrl;
   String publicUrl;
 
-  initializeUploadPhotoManager();
+  StorageUploaderManager initializeUploadPhotoManager();
 
   Future<String> getPublicUrl({int size}) async {
     if (publicUrl != null && publicUrl.isNotEmpty) {
@@ -58,7 +58,6 @@ abstract class FileModelPattern extends PatternModel {
     super.updateValues(values);
     type = getJsonValue('type');
     content = getJsonValue('content');
-    views = getJsonValue('views');
     privateUrl = getJsonValue('private_url');
     publicUrl = getJsonValue('public_url');
   }

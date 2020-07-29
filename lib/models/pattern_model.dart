@@ -80,10 +80,11 @@ abstract class PatternModel {
 
   @mustCallSuper
   Map<String, dynamic> toJson({bool exportOnlyChanged = false, bool ignoreNulls = false}) {
-    Map map = Map<String, dynamic>();
     _exportOnlyChanged = exportOnlyChanged;
     _ignoreNulls = ignoreNulls;
 
+    Map map = Map<String, dynamic>();
+    
     setJsonValue(map, 'id', id, onlyNotNull: true, alwaysExport: true);
     setJsonValue(map, 'uuid', uuid, onlyNotNull: true, alwaysExport: true);
 
