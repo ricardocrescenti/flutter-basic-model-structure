@@ -1,6 +1,6 @@
 //import 'package:flutter_test/flutter_test.dart';
 
-//import 'package:basic_structure/basic_structure.dart';
+//import 'package:basic_model_structure/basic_model_structure.dart';
 
 void main() {
   // test('adds one to input values', () {

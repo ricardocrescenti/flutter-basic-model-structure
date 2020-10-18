@@ -1,4 +1,4 @@
-library basic_structure;
+library basic_model_structure;
 
 export 'classes/storage_uploader_manager.dart';
 

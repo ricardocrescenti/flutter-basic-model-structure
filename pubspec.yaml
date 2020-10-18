@@ -1,6 +1,6 @@
-name: basic_structure
+name: basic_model_structure
 description: A new Flutter package project.
-version: 0.0.1
+version: 1.0.0
 author: Ricardo Crescenti <ricardo.crescenti@gmail.com>
 homepage: https://github.com/ricardocrescenti/flutter-basic-structure
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:basic_structure/basic_structure.dart';
+import 'package:basic_model_structure/basic_model_structure.dart';
 
 enum TextPosition { Center, TopInside, TopOutside, BottomInside, BottomOutside }
 

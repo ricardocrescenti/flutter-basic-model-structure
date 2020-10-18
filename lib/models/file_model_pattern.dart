@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:basic_structure/basic_structure.dart';
+import 'package:basic_model_structure/basic_model_structure.dart';
 
 abstract class FileModelPattern extends PatternModel {
   StorageUploaderManager _uploadPhotoManager;

@@ -1,6 +1,6 @@
-import 'package:basic_structure/basic_structure.dart';
+import 'package:basic_model_structure/basic_model_structure.dart';
 
-import '../basic_structure.dart';
+import '../basic_model_structure.dart';
 
 abstract class CategoryModelPattern<ImageModel, ParentModel> extends PatternModel {
   String name;
