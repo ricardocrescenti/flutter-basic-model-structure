@@ -9,29 +9,48 @@ abstract class CategoryModelPattern<ImageModel, ParentModel> extends PatternMode
   ParentModel parent;
 
   ImageModel getImageFromJson(dynamic json);
+
   ParentModel getParentFromJson(dynamic json);
   
+  CategoryModelPattern() : super();  
   CategoryModelPattern.fromJson(json) : super.fromJson(json);
-  CategoryModelPattern.empty() : super.empty();
 
   @override
-  void updateValues(Map<String, dynamic> values) {
-    super.updateValues(values);
-    name = getJsonValue<String>('name');
-    description = getJsonValue<String>('description');
-    image = getJsonValue<ImageModel>('image', convertion: (value) => getImageFromJson(value));
-    parent = getJsonValue<ParentModel>('parent', convertion: (value) => getParentFromJson(value));
+  void readValues() {
+    super.readValues();
+    name = readValue<String>('name');
+    description = readValue<String>('description');
+    image = readValue<ImageModel>('image', convertion: (value) => getImageFromJson(value));
+    parent = readValue<ParentModel>('parent', convertion: (value) => getParentFromJson(value));
   }
 
   @override
-  Map<String, dynamic> toJson({bool exportOnlyChanged = false, bool ignoreNulls = false}) {
-    Map<String, dynamic> map = super.toJson(exportOnlyChanged: exportOnlyChanged, ignoreNulls: ignoreNulls);
-    
-    setJsonValue(map, 'name', name);
-    setJsonValue(map, 'description', description);
-    setJsonValue(map, 'image', image);
-    setJsonValue(map, 'parent', parent);
-    
-    return map;
+  void writeValues(bool exportOnlyChanged, bool ignoreNulls) {
+    writeValue('name', name);
+    writeValue('description', description);
+    writeValue('image', image);
+    writeValue('parent', parent);
   }
+}
+
+
+class Teste extends CategoryModelPattern<dynamic, Teste> {
+
+  Teste() : super();
+  Teste.fromJson(json) : super.fromJson(json);
+
+  @override
+  getImageFromJson(json) {
+    throw UnimplementedError();
+  }
+
+  @override
+  Teste getParentFromJson(json) {
+    throw UnimplementedError();
+  }
+
+}
+
+Teste getTeste() {
+  return Teste();
 }

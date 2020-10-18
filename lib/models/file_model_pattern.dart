@@ -50,27 +50,23 @@ abstract class FileModelPattern extends PatternModel {
     return await uploadPhotoManager.storageReference.getRoot().child(privateUrl).getDownloadURL();
   }
 
+  FileModelPattern();  
   FileModelPattern.fromJson(json) : super.fromJson(json);
-  FileModelPattern.empty() : super.empty();
 
   @override
   void updateValues(Map<String, dynamic> values) {
     super.updateValues(values);
-    type = getJsonValue('type');
-    content = getJsonValue('content');
-    privateUrl = getJsonValue('private_url');
-    publicUrl = getJsonValue('public_url');
+    type = readValue('type');
+    content = readValue('content');
+    privateUrl = readValue('private_url');
+    publicUrl = readValue('public_url');
   }
 
   @override
-  Map<String, dynamic> toJson({bool exportOnlyChanged = false, bool ignoreNulls = false}) {
-    Map<String, dynamic> map = super.toJson(exportOnlyChanged: exportOnlyChanged, ignoreNulls: ignoreNulls);
-    
-    setJsonValue(map, 'type', type);
-    setJsonValue(map, 'content', content);
-    setJsonValue(map, 'private_url', privateUrl);
-    setJsonValue(map, 'public_url', publicUrl);
-    
-    return map;
+  void writeValues(bool exportOnlyChanged, bool ignoreNulls) {
+    writeValue('type', type);
+    writeValue('content', content);
+    writeValue('private_url', privateUrl);
+    writeValue('public_url', publicUrl);
   }
 }

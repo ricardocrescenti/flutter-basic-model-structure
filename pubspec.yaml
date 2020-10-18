@@ -10,8 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  useful_classes: ^2.2.0
     
-  firebase_storage: ^3.1.1
+  firebase_storage: ^4.0.0
   uuid: 2.0.4
 
 dev_dependencies:
