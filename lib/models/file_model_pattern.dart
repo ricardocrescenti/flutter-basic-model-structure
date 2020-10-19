@@ -54,19 +54,19 @@ abstract class FileModelPattern extends PatternModel {
   FileModelPattern.fromJson(json) : super.fromJson(json);
 
   @override
-  void updateValues(Map<String, dynamic> values) {
-    super.updateValues(values);
+  void readValues() {
+    super.readValues();
     type = readValue('type');
     content = readValue('content');
-    privateUrl = readValue('private_url');
-    publicUrl = readValue('public_url');
+    privateUrl = readValue('privateUrl');
+    publicUrl = readValue('publicUrl');
   }
 
   @override
   void writeValues(bool exportOnlyChanged, bool ignoreNulls) {
     writeValue('type', type);
     writeValue('content', content);
-    writeValue('private_url', privateUrl);
-    writeValue('public_url', publicUrl);
+    writeValue('privateUrl', privateUrl);
+    writeValue('publicUrl', publicUrl);
   }
 }
